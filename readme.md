@@ -15,9 +15,9 @@ Here are the top use cases of our system:
 - **Create post:** Any member can create a post to share with their connections, as well as like other posts or add comments to any post.
 - **Send notifications:** The system will be able to send notifications for new messages, connection invites, etc.
 
-<p align="center">
+<!-- <p align="center">
     <img src="/media/linkedin-use-case-diagram.svg" alt="Use Case Diagram">
-</p>
+</p> -->
 
 <p align="center">
     <img src="/media/uml.svg" alt="UML">
