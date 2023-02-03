@@ -66,7 +66,7 @@
     Activity Diagram for login user.
 </p>
 
-**Send message:** Any Member can perform this activity. After sending a message, the system needs to send a notification to all the requested members. Here are the steps for sending a message:
+<!-- **Send message:** Any Member can perform this activity. After sending a message, the system needs to send a notification to all the requested members. Here are the steps for sending a message:
 
 <p align="center">
     <img src="/media/sendmsg.svg" alt="LinkedIn Send Message Activity Diagram">
@@ -80,5 +80,5 @@
    <img src="/media/exp.svg" alt="LinkedIn Send Message Activity Diagram">
     <br />
     Activity Diagram for Add Experience to Profile.
-</p>
+</p> -->
 
