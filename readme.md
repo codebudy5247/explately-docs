@@ -29,8 +29,8 @@
     <img src="/media/er.svg" alt="Class Diagram">
 </p>
 
-**Flow:**
-[Flow Document Link](https://docs.google.com/document/d/1y1g0VjbBMSH0HbBKWvRKNXpzJzeJjsLi-LzBt_YqMfM/edit?usp=sharing)
+# **Flow:**
+## [Flow Document Link](https://docs.google.com/document/d/1y1g0VjbBMSH0HbBKWvRKNXpzJzeJjsLi-LzBt_YqMfM/edit?usp=sharing)
 
 
 **Google OAuth:** Google OAuth integration.
