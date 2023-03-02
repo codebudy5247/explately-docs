@@ -1,0 +1,462 @@
+====================================================================================================================================
+|| SIGNUP JOURNEY:
+==================================================================================================================================== 
+
+                    +--------------+   
+                    |    Member    |   
+                    +--------------+   
+                          |        
+                          | has    
+                          |        
+                    +--------------+   
+                    |   Profile    |   
+                    +--------------+   
+                          |        
+                          | has    
+                          |        
+                    +--------------+   
+                    |   Email      |   
+                    +--------------+   
+
+                    +--------------+
+                    |   Phone      |   
+                    +--------------+  
+                          |        
+                          | has    
+                          |        
+                    +--------------+   
+                    |   Password   |   
+                    +--------------+   
+
+In this ERD, a user who wants to sign up must first create a member account, which is associated with a unique 
+profile.
+The profile is required to have at least one email associated with it, and the email must be verified in order to complete the 
+signup process.
+The profile is required to have at least one phone number associated with it, and the phone must be verified in order to complete the 
+signup process.
+The profile is also associated with a password, which the user creates during the signup process.
+
+-> Start
+===============================================================
+// Common for all users[Applicant/Company/Recruiter Agency/SPA]
+===============================================================
+-> User goes to the website
+
+-> System displays registration page with registration form
+
+-> User select the language and Company/Agency type
+
+-> System displays the registration form based upon the selected Company/Agency type and language
+
+================
+// For Applicant
+================
+-> User enter registration details in the form
+
+-> System validates registration form data,checks for errors,missing information
+
+-> If there is missing information [Notify user about the missing information]
+
+-> System checks for existing user in database
+
+-> If user exist with same email/phone [Notify user that user is already exist in database]
+
+=========================================================================
+// OTP Verification Process[Phone/Whatsapp/Email] - Commmon for all users
+=========================================================================
+-> Save user to db and create a new user id.
+
+-> Send OTP to the user emailId
+
+-> Redirect user to the OTP verification page
+
+-> User click on submit button then System process the OTP verification process
+
+-> If OTP is not correct system notifies user about that
+
+-> If OTP is correct System notifies user about that and redirect user to phone OTP verification page
+
+-> User gets the otp code on its mobile/whatsapp number
+
+-> User click on submit button then System process the OTP verification process
+
+-> If OTP is not correct system notifies user about that
+====================================================================================================================
+
+-> If Otp is correct redirect user to the [Services selection] popup
+
+-> If user clicked on next button the info saved to the user profile and redirect to the next selection popup
+
+-> System displays [interested industries] selection popup
+
+-> If user clicked on next button the info saved to the user profile and redirect to the next selection popup
+
+-> System displays [Intrested Country to Explore] selection popup
+
+-> If user clicked on next button the info saved to the user profile and redirect to the next selection popup
+
+-> If user clicked on next button the info saved to the user profile and redirect to the User Dashboard
+
+===============================
+// For License agency/Recruiter
+===============================
+
+-> User enter registration details in the form
+
+-> when user clicks on the verify button System verify the agency by number/agency name
+
+-> System fetch the all required info about the agency by Agencies database based on the RA number
+
+-> When user click on signup button System validates form data
+
+-> System  starts OTP verification process
+
+-> If OTP verification is successfull redirect user to [location] selection popup where user can select where does his agency 
+   provide workers
+
+-> If user clicked on next button the info saved to the user profile and redirect to the next selection popup
+
+-> System displays next [interested industries] selection popup
+
+-> If user clicked on next button the info saved to the user profile and redirect to the next selection popup
+
+-> System displays [preffered location] selection popup
+
+-> If user clicked on next button the info saved to the user profile
+
+-> System generates unique Qrcode for this agency
+
+-> Displays Qrcode popup
+
+-> When user close the qr code popup system redirect user to the dashboard page
+
+=========================
+// For Gulf based company
+=========================
+
+-> User enter registration details in the form
+
+-> System validates registration form data,checks for errors,missing information
+
+-> If there is missing information [Notify user about the missing information]
+
+-> User click on signup button
+
+-> System  starts OTP verification process
+
+-> If OTP verification is successfull system displays [Services] selection popup to user
+
+-> If user clicked on next button the info saved to the user profile and redirect to the next selection popup
+
+-> System displays [Looking to Hire Staff from] selection popup
+
+-> If user clicked on next button the info saved to the user profile and redirect to the next selection popup
+
+-> System displays [Intrested Area] selection popup
+
+-> If user clicked on next button the info saved to the user profile
+
+-> System generates unique Qrcode for this Company
+
+-> Displays Qrcode popup
+
+-> When user close the qr code popup system redirect user to the dashboard page
+
+===========================
+// For Skill provider agent
+===========================
+
+-> User enter registration details in the form
+
+-> If user select he can hold any registered agency/branch Displays user RA number and Branch location verification form
+
+-> System validates registration form data,checks for errors,missing information
+
+-> If there is missing information [Notify user about the missing information]
+
+-> User click on signup button
+
+-> System  starts OTP verification process
+
+-> If OTP verification is successfull system displays [Services] selection popup to user
+
+-> If user clicked on next button the info saved to the user profile and redirect to the next selection popup
+
+-> System displays [Intrested Countries willing to work] selection popup
+
+-> If user clicked on next button the info saved to the user profile and redirect to the next selection popup
+
+-> System displays [Your Interested Industries] selection popup
+
+-> If user clicked on next button the info saved to the user profile and redirect to the next selection popup
+
+-> System displays [Agency you worked Before] selection popup
+
+-> If user clicked on next button the info saved to the user profile and redirect to the next selection popup
+
+-> System displays [your Intrested Categories] selection popup
+
+-> If user clicked on next button the info saved to the user profile
+
+-> System generates unique Qrcode for this Profile
+
+-> Displays Qrcode popup
+
+-> When user close the qr code popup system redirect user to the dashboard page
+
+====================================================================================================================================
+
+-> End
+
+====================================================================================================================================
+|| WHATSAPP SIGNUP JOURNEY:
+==================================================================================================================================== 
+
+-> Scan the QR code
+
+-> Provide a form for the user to enter their mobile phone number on your app. Make sure to include a field for the country code 
+   as well.
+
+-> Once the user submits their phone number, generate a unique verification code and send it to the user via a WhatsApp message. 
+   You can use the Twilio API to programmatically send WhatsApp messages.
+
+-> Instruct the user to enter the verification code on your app to confirm their phone number.
+
+-> Once the user enters the verification code, create a user account for them on your app and give them access to the app's 
+   features.
+
+-> You can also consider using WhatsApp Business API to automate the verification process, especially for large-scale signups. With 
+   WhatsApp Business API, you can verify user phone numbers through WhatsApp and complete the signup process programmatically.
+
+====================================================================================================================================
+|| SIGNIN JOURNEY:
+==================================================================================================================================== 
+
+-> Start
+
+-> User goes to the website
+
+-> System displays login page with login form
+
+-> User enter login details in the form
+
+-> System validates login form data,checks for errors,missing information
+
+-> If there is missing information [Notify user about the missing information]
+
+-> System checks for existing user in database by user email address
+
+-> If user dont present [Notifies user you have to register first]
+
+-> System returns JWT token,Refresh token,user Information,Authorities
+
+-> User request data with JWT Bearer token header
+
+-> System checks JWT signature
+
+-> If signature doesn't match [Notifies user You are not authorized to acess this resources]
+
+-> Redirect user to dashboard page.
+
+-> End
+
+====================================================================================================================================
+|| USER NETWORKING:
+==================================================================================================================================== 
+                    +-------------+   
+                    |   Profile   |   
+                    +-------------+   
+                          |        
+                          | has    
+                          |        
+                    +-------------+   
+                    |   Contact   |   
+                    +-------------+   
+                    /            \    
+                   /              \   
+                  /                \  
+         +-------------+    +--------------+   
+         |   Company   |    |   Education  |   
+         +-------------+    +--------------+   
+             |       has many         |        
+             |                        |        
+      +--------------+          +--------------+
+      |   Experience |          |   Skill      |
+      +--------------+          +--------------+
+
+In this ERD, a profile can have one or many contacts, and each contact can belong to one or many profiles.
+A profile can also be associated with multiple companies , and each company can be associated with multiple profiles.
+Additionally, a profile can have multiple experiences, such as job positions, and can have multiple skills
+associated with it.
+
+-> Start
+
+-> User navigate to the network page
+
+-> System displays the network page
+
+-> User clicks on Add connection button
+
+-> System displays suggested connections to the user based on shared interests,industries and Connections
+
+-> User selects desired connections
+
+-> System sends connection request to the selected user and notifies the user of the request
+
+-> User accepts or rejects connection requests
+
+-> System updates the connection list for both users and notifies the initiating user of the decision
+
+-> End
+
+In this flowchart, the user navigates to the "My Network" page and clicks on the "Add Connections" button. The system then 
+displays suggested connections to the user based on shared interests, industries, and connections. The user can select the 
+desired connection(s) and send connection requests. The system sends the request and notifies the recipient user. If the 
+recipient accepts the request, the system updates the connection list for both users and notifies the initiating user of the 
+decision. If the recipient rejects the request, the system removes the request and notifies the initiating user.
+
+====================================================================================================================================
+|| JOB POSTING:
+==================================================================================================================================== 
+
++-----------------+                 +-----------------+
+|     Employer    |                 |    System     |
++-----------------+                 +-----------------+
+| 1. Employer      |                 | 2. System      |
+|    logs in to    |                 |    displays the  |
+|    the           |                 |    job posting   |
+|    account       |                 |    form for the  |
+|                  |                 |    employer to   |
+|                  |                 |    fill out      |
++-----------------+                 +-----------------+
+         |                                               |
+         |                                               |
++-----------------+                 +-----------------+
+|     Employer    |                 |    System       |
++-----------------+                 +-----------------+
+| 3. Employer      |                 | 4. System      |
+|    fills out the |                 |    validates the |
+|    job posting   |                 |    job posting   |
+|    form and      |                 |    information   |
+|    submits it    |                 |    and saves the |
+|                  |                 |    job posting   |
++-----------------+                 +-----------------+
+         |                                               |
+         |                                               |
++-----------------+                 +-----------------+
+|     Employer    |                 |     Job Seeker   |
++-----------------+                 +-----------------+
+| 5. Job posting   |                 | 6. Job seeker    |
+|    is published  |                 |    searches for  |
+|    on WEBSITE   |                 |    job postings  |
+|                  |                 |    on WEBSITE   |
++-----------------+                 +-----------------+
+         |                                               |
+         |                                               |
++-----------------+                 +-----------------+
+|     Employer    |                 |     Job Seeker   |
++-----------------+                 +-----------------+
+| 7. Employer      |                 | 8. Job seeker    |
+|    receives      |                 |    applies for   |
+|    job           |                 |    the job       |
+|    applications  |                 |    posting by    |
+|    from job      |                 |    submitting a  |
+|    seekers       |                 |    job           |
+|                  |                 |    application   |
++-----------------+                 +-----------------+
+
+-> Start
+
+-> RECRUITING AGENCY/SPA Agents/Gulf based company logs in to LinkedIn account
+
+-> RECRUITING AGENCY/SPA Agents/Gulf based company clicks on "Post a Job" button
+
+-> RECRUITING AGENCY/SPA Agents/Gulf based company fills out job posting form with details such as job title, location, job 
+   description, qualifications, and compensation
+
+-> RECRUITING AGENCY/SPA Agents/Gulf based company chooses the job posting duration and budget
+
+-> RECRUITING AGENCY/SPA Agents/Gulf based company reviews the job posting and makes any necessary changes
+
+-> RECRUITING AGENCY/SPA Agents/Gulf based company clicks "Post" to submit the job posting
+
+-> System reviews the job posting to ensure it meets the site's standards and policies
+
+-> If the job posting is approved, it is published on app job board
+
+-> Job seekers gets the notification through whatsapp message/email
+
+-> Job seekers search for job postings and find the posted job
+
+-> Job seeker applies for the job by submitting their resume and cover letter
+
+-> RECRUITING AGENCY/SPA Agents/Gulf based company receives the application and reviews the candidate's qualifications
+
+-> RECRUITING AGENCY/SPA Agents/Gulf based company contacts the candidate for an interview or rejects the application
+
+-> End
+
+====================================================================================================================================
+|| POST:
+==================================================================================================================================== 
+
+-> Start
+
+-> User logs in to LinkedIn account
+
+-> Click "Start a post" button
+
+-> Write post content (text, images, videos, pdf etc.)
+
+-> Add any relevant hashtags or mentions
+
+-> Choose post visibility (public, connections only, specific groups,community etc.)
+
+-> Add location (if applicable)
+
+-> Preview the post
+
+-> Edit the post (if needed)
+
+-> Click "Post" to publish the post on app
+
+-> Post appears in the user's feed and is visible to selected audience
+
+-> Connections and other users can engage with the post by liking, commenting, sharing, etc.
+
+-> User receives notifications for likes,comments,sharing,reposted
+
+-> End
+
+====================================================================================================================================
+|| MESSAGING:
+==================================================================================================================================== 
+
+-> Start
+
+-> User selects 'Compose a new massage' from the UI
+
+-> New Message UI opens up
+
+-> User Searches/Selects member to send message
+
+-> User adds content of the message
+
+-> Upload document or photo OPTIONS[choose media,upload media]
+
+-> User press send message button
+
+-> System runs verification
+
+-> If there is any missing informations [Notify user about the missing information]
+
+-> Send message to all the requested member
+
+-> Send Email/Notification about the new message to all the requested members
+
+-> End
+
+====================================================================================================================================
+|| 
+==================================================================================================================================== 
+
